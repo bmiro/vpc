@@ -1,0 +1,4 @@
+Contador de arboles en imágenes aéreas
+Cada grupo debe entregarme 10 imágenes aéreas de campos sembrados. Las fotos pueden obtenerse de google maps (colocando el nivel de zoom al segundo nivel de máximo zoom)
+Previo a la implementación debe hacerse un informe, estudiando cada tipo de algoritmo de segmentación, evaluando ventajas e inconvenientes. Finalmente se debe decidir que tipo de algoritmo se usará indicando los motivos.
+Una vez realizado el informe puede procederse a la implementación.

@@ -1,0 +1,3 @@
+Lector de números de código de barras
+Cada grupo debe entregarme 10 imagenes de codigos de barra escaneados, estos codigos de barra los entregare como juego de pruebas para verificar que funciona.
+

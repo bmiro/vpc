@@ -1,0 +1,3 @@
+Hallar la altura de una persona a partir de una imagen tomando como referencia el tamaño de un objeto. Tomar dos imágenes (preferiblemente a máxima resolución) donde aparezcan algún integrante del grupo y un objeto de referencia.
+Calculando los puntos de fuga hallar la relación de altura entre los dos objetos y determinar su altura.
+Se debe emplear software de edición de imágen, Paint, GIMP... entregando la imagen modificada con el cálculo de los puntos de fuga.

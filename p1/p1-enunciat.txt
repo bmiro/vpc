@@ -1,0 +1,5 @@
+Detección de Piel.
+La piel tiene una tonalidad de color invariante a la raza. Se trata de determinar que pixeles de la imagen son piel.
+El estudio debe realizarse teniendo en cuenta el color y la saturación, para ello debe hacerse en otro espacio de color que el RGB, puede realizarse en HLS, HSV, Lab, Luv (cualquiera que este orientado al color, y no a la intensidad en canales). Hay que tener en cuenta que la componente de color es cíclica, es decir, si representamos el color con valores de 0 a 255, la distancia de 0 a 1 es la misma que de 255 a 0.
+Se debe estudiar qué valores toma el color y la saturación y filtrar por dichos valores. Para que se considere un pixel de color piel debe cumplir ambos filtros.
+El resultado debe ser una aplicación que toma una imagen de entrada (o un video preferiblemente) y muestra únicamente los píxeles que se considera piel, el resto debe ser negro.

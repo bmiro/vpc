@@ -1,0 +1,3 @@
+Detección de Caras.
+Se trata de localizar caras en una imagen.
+En la práctica anterior se ha localizado piel, ahora se debe determinar si es una cara (modelada como una elipse). En caso de ser una cara interesa localizar puntos de interés. Comisuras de los labios, ojos y nariz.
