@@ -29,7 +29,6 @@ def setHlsFilter(key, value):
     print str(key) + "a"
     print hlsFilter
 
-
 def getHlsFilter(key):
     return hlsFilter[key]
 
@@ -109,7 +108,7 @@ def getFilter(frameWidht, frameHeight):
     ThSFrame = cvCreateImage(cvSize(frameWidth, frameHeight), IPL_DEPTH_8U, 1)
     
     key = -1
-    while key == -1: # fer que sigui enter
+    while key == -1: 
         if not cvGrabFrame(CAM):
             print "Could not grab a frame"
             exit
@@ -145,7 +144,6 @@ def getBackground(frameWidht, frameHeight):
     text = cvCreateImage(cvSize(frameWidth, frameHeight), IPL_DEPTH_8U, 3)
     frame = cvCreateImage(cvSize(frameWidth, frameHeight), IPL_DEPTH_8U, 3)
     background = cvCreateImage(cvSize(frameWidth, frameHeight), IPL_DEPTH_8U, 3)
-
 
     font = cvInitFont(CV_FONT_HERSHEY_COMPLEX, 1.0, 1.0, 0.0, 2)
     pt1 = cvPoint(50, 100)
@@ -185,7 +183,7 @@ def getBackground(frameWidht, frameHeight):
         key = -1
         while key != 'n' and key != 'y':
             key = cvWaitKey(10)
-            if key == 'y': # fer que sigui enter
+            if key == 'y': 
                 like = True
                 
     return background        

@@ -12,13 +12,10 @@ patrons = ["0.bmp", "1.bmp", "2.bmp", "3.bmp", "4.bmp", "5.bmp", "6.bmp", "7.bmp
 
 def cercaContorns(img):
 
-	img_aux = cvCreateImage(cvGetSize(img), IPL_DEPTH_8U, 1)
 	mem = cvCreateMemStorage(0)
+	n, contorns = cvFindContours(img, mem, sizeof_CvContour, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE, cvPoint(0,0)) 
 
-	cvCopy(img, img_aux)
-	n, contours = cvFindContours(img_aux, mem, sizeof_CvContour, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE, cvPoint (0,0)) 
-
-	return contours
+	return contorns
 
 def trataContorns(contours): 
 	
@@ -29,9 +26,9 @@ def trataContorns(contours):
 		#TODO Mirar si tenim una imatge mes grosa o una de mes petita es necesari
  		#cercar el ratio
 
-		#si no te el tamany d'un numero no lo cojemos
+		#si no te el tamany d'un numero no l'agafam
 		if (rect.width > 7 and rect.width < 20 and rect.height > 20 and rect.height < 30):				
-			numeros.append(c)	
+			numeros.append(c)			
 
 	#ordenam els numeros trobats aixi com estan a la imagen original
 	numeros.sort(comp)
@@ -56,22 +53,23 @@ def cercaNumero(img, num):
 	numCodi = cvCreateImage(cvSize(rect.width, rect.height), IPL_DEPTH_8U, 1)
 	numCodi = cvGetSubRect(img, rect)	
 
-	puntuacio = 100000
-	for a in range(len(patrons)):
+	num = 0
+	puntuacio = 1000000
+	for i in range(len(patrons)):
 		
-		imgNumCodi = cvCreateImage(cvGetSize(imgPatro[a]), IPL_DEPTH_8U,1)
+		imgNumCodi = cvCreateImage(cvGetSize(imgPatro[i]), IPL_DEPTH_8U, 1)
 		
 		#es redimensiona la imatge perque tengui el mateix tamany que el patro
 		cvResize(numCodi, imgNumCodi)
 		
-		cvXor(imgPatro[a], imgNumCodi, imgNumCodi)
+		cvXor(imgPatro[i], imgNumCodi, imgNumCodi)
 		
 		tam = cvGetSize(imgNumCodi)	
 		p = float(cvCountNonZero(imgNumCodi)) / float(tam.height*tam.width) 
 	
 		if p < puntuacio:
 			puntuacio = p
-			num = a 
+			num = i
 
 	return num
 
@@ -97,10 +95,10 @@ if __name__ == '__main__':
 		i += 1
 
 	#cercam els contorns que te la imatge original
-	contours = cercaContorns(img)		
+	contorns = cercaContorns(img)		
 
 	#agafam els contorns que tenen aspecte de numero
-	numeros = trataContorns(contours)
+	numeros = trataContorns(contorns)
 
 	#per cada numero trobat, el comparam amb els patrons 
 	#i agafam el mes parescut
